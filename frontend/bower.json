@@ -12,5 +12,9 @@
     "jquery": "^1.11.3",
     "loader.js": "ember-cli/loader.js#3.4.0",
     "qunit": "~1.20.0"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "~3.3.6",
+    "font-awesome": "fontawesome#~4.5.0"
   }
 }
