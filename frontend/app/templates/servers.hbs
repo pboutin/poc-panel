@@ -1,0 +1,7 @@
+<h1>Yay servers</h1>
+
+<ul>
+{{#each model as |server|}}
+    <li>{{server.hostname}} status: {{server.status}}</li>
+{{/each}}
+</ul>
