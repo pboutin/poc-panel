@@ -1,0 +1,10 @@
+{
+    "name": "pboutin/backend",
+    "authors": [
+        {
+            "name": "Pascal Boutin",
+            "email": "pboutin@pilogiq.com"
+        }
+    ],
+    "require": {}
+}
