@@ -12,9 +12,8 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->welcome();
+    return view('app');
 });
-
 
 $app->group(['prefix' => 'api', 'namespace' => 'App\Http\Controllers'], function($app) {
 
