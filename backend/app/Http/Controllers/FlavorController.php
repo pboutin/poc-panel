@@ -7,7 +7,13 @@ use App\Flavor;
 class FlavorController extends Controller {
 
     public function index() {
-        return response()->json(Flavor::all());
+        $flavors = [];
+        foreach (Flavor::all() as $flavor) {
+            $flavors[] = $flavor->serialize();
+        }
+        return response()->json([
+            'flavors' => $flavors
+        ]);
     }
 
 }

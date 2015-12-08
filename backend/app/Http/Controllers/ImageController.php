@@ -7,7 +7,13 @@ use App\Image;
 class ImageController extends Controller {
 
     public function index() {
-        return response()->json(Image::all());
+        $images = [];
+        foreach (Image::all() as $image) {
+            $images[] = $image->serialize();
+        }
+        return response()->json([
+            'images' => $images
+        ]);
     }
 
 }

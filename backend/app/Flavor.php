@@ -13,4 +13,15 @@ class Flavor extends Model
         'disk',
         'hourly_rate'
     ];
+
+    public function serialize() {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'ram' => $this->ram,
+            'cpu' => $this->cpu,
+            'disk' => $this->disk,
+            'hourly_rate' => $this->hourly_rate
+        ];
+    }
 }
