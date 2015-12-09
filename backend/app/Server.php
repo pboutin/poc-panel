@@ -12,6 +12,10 @@ class Server extends Model
         'status'
     ];
 
+    public function affectRandomIpAddress() {
+        $this->ip = rand(0, 255) . '.' . rand(0, 255) . '.' . rand(0, 255) . '.' . rand(0, 255);
+    }
+
     public function serialize() {
         return [
             'id' => $this->id,

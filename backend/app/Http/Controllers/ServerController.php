@@ -28,45 +28,46 @@ class ServerController extends Controller {
     public function getById($id) {
         $server = Server::find($id);
         return response()->json([
-            'server' => $server->serialize(),
-            'image' => $server->image->serialize(),
-            'flavor' => $server->flavor->serialize()
+            'servers' => [ $server->serialize() ],
+            'images' => [ $server->image->serialize() ],
+            'flavors' => [ $server->flavor->serialize() ]
         ]);
     }
 
     public function create(Request $request) {
         $server = new Server();
 
-        $server->hostname = $request->input('hostname');
-        $server->ip = $request->input('ip');
+        $server->hostname = $request->input('server.hostname');
+        $server->ip = $request->input('server.ip');
         $server->status = 'on';
+        $server->affectRandomIpAddress();
 
-        $flavor = Flavor::find($request->input('flavor'));
+        $flavor = Flavor::find($request->input('server.flavor'));
         if (isset($flavor)) {
             $server->flavor()->associate($flavor);
         }
 
-        $image = Image::find($request->input('image'));
+        $image = Image::find($request->input('server.image'));
         if (isset($image)) {
             $server->image()->associate($image);
         }
 
         $server->save();
         sleep(10);
+
         return response()->json([
-            'server' => $server->serialize(),
-            'image' => $server->image->serialize(),
-            'flavor' => $server->flavor->serialize()
+            'servers' => [ $server->serialize() ],
+            'images' => [ $server->image->serialize() ],
+            'flavors' => [ $server->flavor->serialize() ]
         ]);
     }
 
     public function update(Request $request, $id) {
         $server = Server::find($id);
         $server->hostname = $request->input('hostname');
-        $server->ip = $request->input('ip');
         $server->save();
         return response()->json([
-            'server' => $server->serialize()
+            'servers' => [ $server->serialize() ]
         ]);
     }
 
@@ -76,7 +77,7 @@ class ServerController extends Controller {
         $server->save();
         sleep(5);
         return response()->json([
-            'server' => $server->serialize()
+            'servers' => [ $server->serialize() ]
         ]);
     }
 

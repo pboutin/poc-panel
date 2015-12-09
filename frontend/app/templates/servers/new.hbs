@@ -1,0 +1,21 @@
+<h2>New server</h2>
+
+<label>Hostname</label>
+{{input value=model.hostname}}
+
+{{#each flavors as |flavor|}}
+    {{#option-selector option=flavor selection=model.flavor class="option"}}
+        {{flavor.name}}
+    {{/option-selector}}
+{{/each}}
+
+{{#each images as |image|}}
+    {{#option-selector option=image selection=model.image class="option"}}
+        {{image.name}}
+    {{/option-selector}}
+{{/each}}
+
+<button class="btn btn-primary" {{action 'save'}}>
+    <i class="fa fa-rocket"></i> Save
+</button>
+

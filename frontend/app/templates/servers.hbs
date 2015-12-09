@@ -1,7 +1,13 @@
-<h1>Yay servers</h1>
+<h1>Servers</h1>
+
+{{#link-to "servers.new"}}Add{{/link-to}}
 
 <ul>
-{{#each model as |server|}}
-    <li>{{server.hostname}} status: {{server.status}}</li>
-{{/each}}
+    {{#each model as |server|}}
+        {{#unless server.isNew}}
+            <li>{{server.hostname}} - {{server.image.name}} - status: {{server.status}}</li>
+        {{/unless}}
+    {{/each}}
 </ul>
+
+{{outlet}}
