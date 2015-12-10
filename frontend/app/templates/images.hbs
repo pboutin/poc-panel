@@ -1,1 +1,28 @@
-{{outlet}}
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="3"></th>
+            <th colspan="3" class="text-center">Minimum requirements</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Version</th>
+            <th>Type</th>
+            <th>Memory</th>
+            <th>vCPUs</th>
+            <th>Storage</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each model as |image|}}
+            <tr>
+                <td>{{image.name}}</td>
+                <td>{{image.version}}</td>
+                <td>{{image.type}}</td>
+                <td>{{image.minRam}}</td>
+                <td>{{image.minCpu}}</td>
+                <td>{{image.minDisk}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
