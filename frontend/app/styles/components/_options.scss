@@ -7,14 +7,13 @@
         margin-left: 3%;
         display: inline-block;
         cursor: pointer;
-        transition: box-shadow 0.2s linear;
+        transition: all 0.2s ease-in-out;
         position: relative;
+        top: 0;
 
-        &.panel-success:hover {
-            box-shadow: 0 0 40px 5px $brand-success;
-        }
-        &.panel-info:hover {
-            box-shadow: 0 0 40px 5px $brand-info;
+        &:hover {
+            top: -5px;
+            background-color: $gray-lighter;
         }
 
         .os-icon {

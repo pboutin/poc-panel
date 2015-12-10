@@ -17,7 +17,7 @@
                 <tr>
                     <td>{{server.hostname}}</td>
                     <td>{{server.ip}}</td>
-                    <td>{{server.status}}</td>
+                    <td>{{status-indicator status=server.status}}</td>
                     <td>
                         {{#if server.isBusy}}
                             <i class="fa fa-refresh fa-spin"></i>
