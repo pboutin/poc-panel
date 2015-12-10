@@ -9,8 +9,8 @@ Router.map(function() {
   this.route('servers', function() {
       this.route('new');
   });
-  this.route('steves');
-  this.route('boats');
+  this.route('flavors');
+  this.route('images');
 });
 
 export default Router;
