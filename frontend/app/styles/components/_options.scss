@@ -1,7 +1,31 @@
-.option {
-    border: 1px solid black;
+.options-wrapper {
+    margin-top: 20px;
+    margin-left: -3%;
 
-    &.selected {
-        border-color: red;
+    > label {
+        width: 30.3%;
+        margin-left: 3%;
+        display: inline-block;
+        cursor: pointer;
+        transition: box-shadow 0.2s linear;
+        position: relative;
+
+        &.panel-success:hover {
+            box-shadow: 0 0 40px 5px $brand-success;
+        }
+        &.panel-info:hover {
+            box-shadow: 0 0 40px 5px $brand-info;
+        }
+
+        .os-icon {
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            font-size: 4.5em;
+        }
+    }
+
+    ul {
+        @extend .list-unstyled;
     }
 }

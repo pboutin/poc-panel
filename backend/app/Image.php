@@ -21,9 +21,9 @@ class Image extends Model
             'name' => $this->name,
             'version' => $this->version,
             'type' => $this->type,
-            'min_ram' => $this->min_ram,
-            'min_cpu' => $this->min_cpu,
-            'min_disk' => $this->min_disk
+            'minRam' => $this->min_ram,
+            'minCpu' => $this->min_cpu,
+            'minDisk' => $this->min_disk
         ];
     }
 }

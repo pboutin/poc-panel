@@ -1,10 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    classNameBindings: ['isSelected:selected'],
+    tagName: 'label',
+    classNameBindings: [':panel', 'isSelected:panel-success:panel-info'],
 
     option: null,
     selection: null,
+    group: '',
 
     click() {
         this.set('selection', this.get('option'));

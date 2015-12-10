@@ -19,8 +19,12 @@
                     <td>{{server.ip}}</td>
                     <td>{{server.status}}</td>
                     <td>
-                        <button class="btn btn-default" {{action 'power' server}}>Power</button>
-                        <button class="btn btn-danger" {{action 'destroy' server}}>Destroy</button>
+                        {{#if server.isBusy}}
+                            <i class="fa fa-refresh fa-spin"></i>
+                        {{else}}
+                            <button class="btn btn-default" {{action 'power' server}}>Power</button>
+                            <button class="btn btn-danger" {{action 'destroy' server}}>Destroy</button>
+                        {{/if}}
                     </td>
                 </tr>
             {{/unless}}

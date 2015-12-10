@@ -1,1 +1,7 @@
-{{yield}}
+<div class="panel-heading">
+    <input type="radio" name="{{group}}" checked="{{if isSelected 'checked'}}" />
+    {{title}}
+</div>
+<div class="panel-body">
+    {{yield}}
+</div>

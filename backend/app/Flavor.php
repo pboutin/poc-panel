@@ -21,7 +21,7 @@ class Flavor extends Model
             'ram' => $this->ram,
             'cpu' => $this->cpu,
             'disk' => $this->disk,
-            'hourly_rate' => $this->hourly_rate
+            'hourlyRate' => $this->hourly_rate
         ];
     }
 }

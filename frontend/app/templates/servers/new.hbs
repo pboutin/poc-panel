@@ -1,21 +1,43 @@
-<h2>New server</h2>
+{{#modal-container}}
+    <div class="modal-body">
+        <h3>Hostname</h3>
+        {{input value=model.hostname class="form-control" placeholder="example.org"}}
 
-<label>Hostname</label>
-{{input value=model.hostname}}
+        <h3>Choose your flavor</h3>
+        <div class="options-wrapper">
+            {{#each flavors as |flavor|}}
+                {{#option-selector option=flavor selection=model.flavor title=flavor.name group="flavor"}}
+                    <ul>
+                        <li>{{flavor.ram}}</li>
+                        <li>{{flavor.cpu}}</li>
+                        <li>{{flavor.disk}}</li>
+                        <li>{{flavor.hourlyRate}}</li>
+                    </ul>
+                {{/option-selector}}
+            {{/each}}
+        </div>
 
-{{#each flavors as |flavor|}}
-    {{#option-selector option=flavor selection=model.flavor class="option"}}
-        {{flavor.name}}
-    {{/option-selector}}
-{{/each}}
-
-{{#each images as |image|}}
-    {{#option-selector option=image selection=model.image class="option"}}
-        {{image.name}}
-    {{/option-selector}}
-{{/each}}
-
-<button class="btn btn-primary" {{action 'save'}}>
-    <i class="fa fa-rocket"></i> Save
-</button>
-
+        <h3>Choose your operating system</h3>
+        <div class="options-wrapper">
+            {{#each images as |image|}}
+                {{#option-selector option=image selection=model.image title=image.title group="image"}}
+                    <ul>
+                        <li>{{image.minRam}}</li>
+                        <li>{{image.minCpu}}</li>
+                        <li>{{image.minDisk}}</li>
+                    </ul>
+                    <i class="os-icon fa {{if image.isLinux 'fa-linux' 'fa-windows'}}"></i>
+                {{/option-selector}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" {{action 'cancel'}} disabled={{model.isSaving}}>
+            Cancel
+        </button>
+        <button class="btn btn-primary" {{action 'save'}} disabled={{model.isSaving}}>
+            <i class="fa {{if model.isSaving 'fa-refresh fa-spin' 'fa-rocket'}}"></i>
+            Save
+        </button>
+    </div>
+{{/modal-container}}
