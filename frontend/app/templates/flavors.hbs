@@ -1,1 +1,22 @@
-{{outlet}}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Memory</th>
+            <th>vCPUs</th>
+            <th>Storage</th>
+            <th>Pricing (hourly)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each model as |flavor|}}
+            <tr>
+                <td>{{flavor.name}}</td>
+                <td>{{flavor.ram}}</td>
+                <td>{{flavor.cpu}}</td>
+                <td>{{flavor.disk}}</td>
+                <td>{{flavor.hourlyRate}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
