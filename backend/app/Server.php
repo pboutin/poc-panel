@@ -19,6 +19,7 @@ class Server extends Model
     public function serialize() {
         return [
             'id' => $this->id,
+            'ip' => $this->ip,
             'hostname' => $this->hostname,
             'status' => $this->status,
             'flavor' => $this->flavor_id,
