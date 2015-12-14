@@ -1,11 +1,9 @@
-<h1>Servers</h1>
-
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Hostname</th>
-            <th>Address</th>
-            <th class="text-center">Status</th>
+            <th>{{t "hostname"}}</th>
+            <th>{{t "address"}}</th>
+            <th class="text-center">{{t "status"}}</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
@@ -16,12 +14,12 @@
                     <td>{{server.hostname}}</td>
                     <td><code>{{server.ip}}</code></td>
                     <td class="text-center">{{status-indicator status=server.status}}</td>
-                    <td class="table-actions">
+                    <td class="text-right">
                         {{#if server.isBusy}}
                             <i class="fa fa-refresh fa-spin"></i>
                         {{else}}
-                            <button class="btn btn-xs btn-default" {{action 'power' server}}>Power</button>
-                            <button class="btn btn-xs btn-danger" {{action 'destroy' server}}>Destroy</button>
+                            <button class="btn btn-xs btn-default" {{action 'power' server}}>{{t (if server.isOn "shutdown" "power")}}</button>
+                            <button class="btn btn-xs btn-danger" {{action 'destroy' server}}>{{t "destroy"}}</button>
                         {{/if}}
                     </td>
                 </tr>
@@ -32,7 +30,7 @@
     <tr>
         <td colspan="4">
             {{#link-to "servers.new" class="btn btn-primary btn-lg btn-block"}}
-                <i class="fa fa-plus"></i> Add
+                <i class="fa fa-plus"></i> {{t "new_server"}}&hellip;
             {{/link-to}}
         </td>
     </tr>

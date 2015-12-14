@@ -15,22 +15,25 @@
                     {{#link-to "servers" tagName="li"}}
                         <a href="{{view.href}}">
                             <i class="fa fa-fw fa-lg fa-server"></i>
-                            Your servers
+                            {{t "menu.servers"}}
                         </a>
                     {{/link-to}}
                     {{#link-to "flavors" tagName="li"}}
                         <a href="{{view.href}}">
                             <i class="fa fa-fw fa-lg fa-cloud"></i>
-                            Our flavors
+                            {{t "menu.flavors"}}
                         </a>
                     {{/link-to}}
                     {{#link-to "images" tagName="li"}}
                         <a href="{{view.href}}">
                             <i class="fa fa-fw fa-lg fa-linux"></i>
-                            Our images
+                            {{t "menu.images"}}
                         </a>
                     {{/link-to}}
                 </ul>
+                <div class="navbar-right">
+                    {{locale-selector}}
+                </div>
             </div>
         </div>
     </nav>

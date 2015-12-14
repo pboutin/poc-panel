@@ -51,21 +51,6 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:400,500" !defaul
 // Typography =================================================================
 
 // Tables =====================================================================
-.table-hover tr {
-
-    .table-actions {
-        text-align: right;
-
-        * {
-            opacity: 0;
-            transition: all 0.2s ease-in-out;
-        }
-    }
-
-    &:hover .table-actions * {
-        opacity: 1;
-    }
-}
 
 // Forms ======================================================================
 

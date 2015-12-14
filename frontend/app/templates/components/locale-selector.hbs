@@ -1,0 +1,5 @@
+{{#each locales as |locale|}}
+    <button class="btn btn-primary navbar-btn" {{action "change" locale.key}}>
+        {{locale.label}}
+    </button>
+{{/each}}
