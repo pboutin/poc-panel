@@ -1,0 +1,25 @@
+<h1>Servers</h1>
+    {{#each model as |server|}}
+        {{#unless server.isNew}}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{server.hostname}}
+                    <div class="pull-right">
+                        {{status-indicator status=server.status}}
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <code>{{server.ip}}</code>
+                </div>
+                <div class="panel-footer">
+                    {{#if server.isBusy}}
+                        <i class="fa fa-refresh fa-spin"></i>
+                    {{else}}
+                        <button class="btn btn-default" {{action 'power' server}}>Power</button>
+                        <button class="btn btn-danger" {{action 'destroy' server}}>Destroy</button>
+                    {{/if}}
+                </div>
+            </div>
+        {{/unless}}
+    {{/each}}
+{{outlet}}

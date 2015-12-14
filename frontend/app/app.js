@@ -1,7 +1,9 @@
 import Ember from 'ember';
-import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
 import config from './config/environment';
+
+// Custom classes
+import Resolver from './ember/resolver';
 
 let App;
 
