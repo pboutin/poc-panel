@@ -1,0 +1,15 @@
+<dl>
+    <dt><i class="fa fa-fw fa-globe"></i> Hostname</dt>
+    <dd>{{server.hostname}}</dd>
+</dl>
+<dl>
+    <dt><i class="fa fa-fw fa-desktop"></i> Flavor</dt>
+    <dd>Name: {{server.flavor.name}}</dd>
+    <dd>Memory: {{server.flavor.ram}}</dd>
+    <dd>vCPUs: {{server.flavor.cpu}}</dd>
+    <dd>Storage: {{server.flavor.disk}}</dd>
+</dl>
+<dl>
+    <dt><i class="fa fa-fw {{if server.image.isLinux 'fa-linux' 'fa-windows'}}"></i> Image</dt>
+    <dd>{{server.image.title}}</dd>
+</dl>

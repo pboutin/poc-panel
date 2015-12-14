@@ -1,34 +1,40 @@
 {{#modal-container}}
-    <div class="modal-body">
-        <h3>Hostname</h3>
-        {{input value=model.hostname class="form-control" placeholder="example.org"}}
+    <div class="modal-body row">
+        <div class="col-xs-10">
+            <h3>Hostname</h3>
+            {{input value=model.hostname class="form-control" placeholder="example.org"}}
 
-        <h3>Choose your flavor</h3>
-        <div class="options-wrapper">
-            {{#each flavors as |flavor|}}
-                {{#option-selector option=flavor selection=model.flavor title=flavor.name group="flavor"}}
-                    <ul>
-                        <li>{{flavor.ram}}</li>
-                        <li>{{flavor.cpu}}</li>
-                        <li>{{flavor.disk}}</li>
-                        <li>{{flavor.hourlyRate}}</li>
-                    </ul>
-                {{/option-selector}}
-            {{/each}}
+            <h3>Flavor</h3>
+            <div class="options-wrapper">
+                {{#each flavors as |flavor|}}
+                    {{#option-selector option=flavor selection=model.flavor title=flavor.name group="flavor"}}
+                        <ul>
+                            <li>{{flavor.ram}}</li>
+                            <li>{{flavor.cpu}}</li>
+                            <li>{{flavor.disk}}</li>
+                            <li>{{flavor.hourlyRate}}</li>
+                        </ul>
+                    {{/option-selector}}
+                {{/each}}
+            </div>
+
+            <h3>Operating system</h3>
+            <div class="options-wrapper">
+                {{#each images as |image|}}
+                    {{#option-selector option=image selection=model.image title=image.title group="image"}}
+                        <ul>
+                            <li>{{image.minRam}}</li>
+                            <li>{{image.minCpu}}</li>
+                            <li>{{image.minDisk}}</li>
+                        </ul>
+                        <i class="os-icon fa {{if image.isLinux 'fa-linux' 'fa-windows'}}"></i>
+                    {{/option-selector}}
+                {{/each}}
+            </div>
         </div>
-
-        <h3>Choose your operating system</h3>
-        <div class="options-wrapper">
-            {{#each images as |image|}}
-                {{#option-selector option=image selection=model.image title=image.title group="image"}}
-                    <ul>
-                        <li>{{image.minRam}}</li>
-                        <li>{{image.minCpu}}</li>
-                        <li>{{image.minDisk}}</li>
-                    </ul>
-                    <i class="os-icon fa {{if image.isLinux 'fa-linux' 'fa-windows'}}"></i>
-                {{/option-selector}}
-            {{/each}}
+        <div class="col-xs-2">
+            <h3>Overview</h3>
+            {{server-review server=model}}
         </div>
     </div>
     <div class="modal-footer">
