@@ -1,43 +1,9 @@
 <div class="container">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                {{#link-to "home" class="navbar-brand"}}Ember panel{{/link-to}}
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    {{#link-to "servers" tagName="li"}}
-                        <a href="{{view.href}}">
-                            <i class="fa fa-fw fa-lg fa-server"></i>
-                            {{t "menu.servers"}}
-                        </a>
-                    {{/link-to}}
-                    {{#link-to "flavors" tagName="li"}}
-                        <a href="{{view.href}}">
-                            <i class="fa fa-fw fa-lg fa-cloud"></i>
-                            {{t "menu.flavors"}}
-                        </a>
-                    {{/link-to}}
-                    {{#link-to "images" tagName="li"}}
-                        <a href="{{view.href}}">
-                            <i class="fa fa-fw fa-lg fa-linux"></i>
-                            {{t "menu.images"}}
-                        </a>
-                    {{/link-to}}
-                    <li><a href="/tests">Run the tests !</a></li>
-                </ul>
-                <div class="navbar-right">
-                    {{locale-selector}}
-                </div>
-            </div>
-        </div>
-    </nav>
+    {{partial "menu"}}
 
     {{outlet}}
 </div>
+
+
+{{memory 2048}} 2go
+{{memory 512}} 512mo

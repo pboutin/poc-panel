@@ -46,16 +46,7 @@ test('deploying a server, happy path', function(assert) {
             fillIn('._hostname', 'pboutin.net');
             click('._submit');
 
-            ajaxPost(/servers/, {
-                servers: [jsonServer({
-                    id: 1,
-                    hostname: 'pboutin.net',
-                    ip: '12.12.12.12',
-                    status: 'on',
-                    flavor: 1,
-                    image: 1
-                })]
-            });
+            ajaxPost(/servers/, { servers: [jsonServer({ hostname: 'pboutin.net' })] });
 
             andThen(function() {
                 assert.equal(currentURL(), '/servers');
@@ -64,3 +55,5 @@ test('deploying a server, happy path', function(assert) {
         });
     });
 });
+
+shouldHaveElementWithCount(assert, 'ul li', 3);
