@@ -55,5 +55,3 @@ test('deploying a server, happy path', function(assert) {
         });
     });
 });
-
-shouldHaveElementWithCount(assert, 'ul li', 3);
