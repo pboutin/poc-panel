@@ -2,10 +2,10 @@
     <div class="modal-body row">
         <div class="col-xs-10">
             <h3>Hostname</h3>
-            {{input value=model.hostname class="form-control" placeholder="example.org"}}
+            {{input value=model.hostname class="_hostname form-control" placeholder="example.org"}}
 
             <h3>Flavor</h3>
-            <div class="options-wrapper">
+            <div class="_flavors options-wrapper">
                 {{#each flavors as |flavor|}}
                     {{#option-selector option=flavor selection=model.flavor title=flavor.name group="flavor"}}
                         <ul>
@@ -19,7 +19,7 @@
             </div>
 
             <h3>Operating system</h3>
-            <div class="options-wrapper">
+            <div class="_images options-wrapper">
                 {{#each images as |image|}}
                     {{#option-selector option=image selection=model.image title=image.title group="image"}}
                         <ul>
@@ -41,7 +41,7 @@
         <button type="button" class="btn btn-default" {{action 'cancel'}} disabled={{model.isSaving}}>
             Cancel
         </button>
-        <button class="btn btn-success" {{action 'save'}} disabled={{model.isSaving}}>
+        <button class="_submit btn btn-success" {{action 'save'}} disabled={{model.isSaving}}>
             <i class="fa {{if model.isSaving 'fa-refresh fa-spin' 'fa-rocket'}}"></i>
             Save
         </button>

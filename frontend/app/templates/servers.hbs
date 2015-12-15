@@ -7,7 +7,7 @@
             <th>&nbsp;</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="_servers">
         {{#each model as |server|}}
             {{#unless server.isNew}}
                 <tr>
@@ -29,7 +29,7 @@
     <tfoot>
     <tr>
         <td colspan="4">
-            {{#link-to "servers.new" class="btn btn-primary btn-lg btn-block"}}
+            {{#link-to "servers.new" class="_add-server btn btn-primary btn-lg btn-block"}}
                 <i class="fa fa-plus"></i> {{t "new_server"}}&hellip;
             {{/link-to}}
         </td>

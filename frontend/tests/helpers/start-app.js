@@ -2,6 +2,13 @@ import Ember from 'ember';
 import Application from '../../app';
 import config from '../../config/environment';
 
+// Custom helpers
+import './ajax/get';
+import './ajax/post';
+import './json/flavor';
+import './json/image';
+import './json/server';
+
 export default function startApp(attrs) {
   let application;
 
